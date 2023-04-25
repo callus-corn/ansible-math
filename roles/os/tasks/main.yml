@@ -1,0 +1,8 @@
+---
+
+- name: install packages
+  ansible.builtin.dnf:
+    name: "{{ math_package_list }}"
+
+- name: install openmpi
+  ansible.builtin.import_tasks: openmpi.yml

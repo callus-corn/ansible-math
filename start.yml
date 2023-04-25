@@ -1,0 +1,15 @@
+---
+
+- name: setup vm
+  hosts: math
+  become: yes
+  tasks:
+
+    - name: dnf update
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+
+    - name: os setup
+      ansible.builtin.import_role:
+        name: os

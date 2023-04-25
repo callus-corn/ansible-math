@@ -1,0 +1,9 @@
+---
+
+math_package_list:
+  - tar
+  - git
+  - make
+  - gcc
+  - gfortran
+  - g++

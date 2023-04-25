@@ -1,0 +1,23 @@
+---
+
+- name: get src
+  ansible.builtin.unarchive:
+    src: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.5.tar.gz
+    dest: /tmp
+    remote_src: yes
+
+- name: ./configure
+  ansible.builtin.shell: >-
+    ./configure
+  args:
+    chdir: /tmp/openmpi-4.1.5
+
+- name: make all
+  ansible.builtin.make:
+    chdir: /tmp/openmpi-4.1.5
+    target: all
+
+- name: make install
+  ansible.builtin.make:
+    chdir: /tmp/openmpi-4.1.5
+    target: install
